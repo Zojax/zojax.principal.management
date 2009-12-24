@@ -1,0 +1,56 @@
+==========
+Management
+==========
+
+Authentication should be queriable.
+
+  >>> from zope.testbrowser.testing import Browser
+
+  >>> actor = Browser()
+  >>> actor.handleErrors = False
+  >>> actor.open("http://localhost/settings/principals/")
+  Traceback (most recent call last):
+  ...
+  Unauthorized: settings
+
+  >>> actor = Browser()
+  >>> actor.addHeader("Authorization", "Basic mgr:mgrpw")
+  >>> actor.handleErrors = False
+
+  >>> actor.open("http://localhost/settings/")
+  >>> actor.getLink('Principals management').click()
+
+Let's create user
+
+  >>> actor.getLink('Member').click()
+  >>> actor.getControl('First Name').value = u'Nikolay'
+  >>> actor.getControl('Last Name').value = u'Kim'
+  >>> actor.getControl('E-mail/Login').value = u'nkim@zojax.net'
+  >>> actor.getControl('Password').value = u'12345'
+  >>> actor.getControl('Add').click()
+
+
+First we should select principal
+
+  >>> actor.open("http://localhost/settings/")
+  >>> actor.getLink('Principals management').click()
+  >>> actor.getControl('View principal').click()
+  >>> actor.url
+  'http://localhost/settings/principals/index.html'
+
+  >>> print actor.contents
+  <html>
+  ...Please select principal...
+  </html>
+
+Let's select one
+
+  >>> actor.getControl(name='form.widgets.principal').value = ['test.zojax.pf01']
+  >>> actor.getControl('View principal').click()
+  >>> actor.url
+  'http://localhost/settings/principals/test.zojax.pf01/@@index.html'
+
+  >>> print actor.contents
+  <html>
+  ...<h1 class="z-prefs-title">Personal preferences</h1>...
+  </html>

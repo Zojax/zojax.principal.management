@@ -1,0 +1,51 @@
+=================
+Principal Factory
+=================
+
+We can create new principal in principals management configlet.
+We should register IPrincipalFactory adapter.
+
+  >>> from zope.testbrowser.testing import Browser
+
+  >>> actor = Browser()
+  >>> actor.handleErrors = False
+  >>> actor.open("http://localhost/settings/principals/")
+  Traceback (most recent call last):
+  ...
+  Unauthorized: settings
+
+  >>> actor = Browser()
+  >>> actor.addHeader("Authorization", "Basic mgr:mgrpw")
+  >>> actor.handleErrors = False
+
+  >>> actor.open("http://localhost/settings/")
+  >>> actor.getLink('Principals management').click()
+
+By default management panel doesnt contain anything
+
+  >>> actor.open("http://localhost/settings/principals/+test.principal/")
+  Traceback (most recent call last):
+  ...
+  NotFound: ... name: u'+test.principal'
+
+Let's register our testing factory
+
+  >>> from zojax.principal.management.tests.factory import PrincipalFactory
+  >>> PrincipalFactory.name == '+test.principal'
+  True
+  >>> PrincipalFactory.title == 'Test Member'
+  True
+
+  >>> from zope import component
+  >>> component.provideAdapter(PrincipalFactory, name=PrincipalFactory.name)
+
+  >>> actor.open("http://localhost/settings/principals/")
+  >>> actor.getLink('Test Member').url
+  'http://localhost/settings/principals/+test.principal/'
+
+  >>> actor.getLink('Test Member').click()
+
+  >>> print actor.contents
+  <html>
+  ...<h1 class="z-form-label">Add new testing principal</h1>...
+  </html>

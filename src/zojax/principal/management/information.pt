@@ -1,0 +1,7 @@
+<h1 tal:content="context/title"></h1>
+<div class="z-page-description" tal:content="context/description">&nbsp;</div>
+<div class="z-topframe" tal:condition="viewlets"
+     tal:define="viewlets options/viewlets">
+  <tal:block tal:repeat="viewlet viewlets"
+	     tal:content="structure viewlet/render" />
+</div>
