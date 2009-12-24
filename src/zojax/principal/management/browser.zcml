@@ -1,0 +1,47 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zcml="http://namespaces.zope.org/zcml"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   xmlns:browser="http://namespaces.zope.org/browser"
+   i18n_domain="zojax.principal.management">
+
+  <browser:icon
+     name="zmi_icon"
+     for=".interfaces.IPrincipalType"
+     file="newprincipal.gif" />
+
+  <browser:icon
+     name="zmi_icon"
+     for="zojax.controlpanel.interfaces.IPrincipalsManagement"
+     file="system-users.png" />
+
+  <browser:defaultView
+     name="index.html"
+     for="zojax.controlpanel.interfaces.IPrincipalsManagement" />
+
+  <zojax:layout
+     name="workspace"
+     layout="portal"
+     template="layout.pt"
+     for=".interfaces.IPrincipalPreferences" />
+
+  <zojax:pagelet
+     name="index.html"
+     for="zojax.controlpanel.interfaces.IPrincipalsManagement"
+     template="management.pt"
+     class=".management.ManagementView"
+     permission="zojax.ManagePrincipals" />
+
+  <!-- principal infomration -->
+  <browser:viewletManager
+     name="zojax.principals-information"
+     provides=".interfaces.IPrincipalInformation"
+     template="information.pt"
+     permission="zope.Public" />
+
+  <!-- configlet breadcrumb -->
+  <adapter
+     zcml:condition="installed z3c.breadcrumb"
+     factory=".breadcrumb.ManagementBreadcrumb" />
+
+</configure>

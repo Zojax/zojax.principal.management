@@ -1,0 +1,27 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:i18n="http://namespaces.zope.org/i18n"
+   xmlns:zojax="http://namespaces.zope.org/zojax"
+   i18n_domain="zojax.principal.management">
+
+  <permission
+     id="zojax.ManagePrincipals"
+     title="Manage site principals" />
+
+  <!-- principals management configlet -->
+  <adapter
+     for="zojax.controlpanel.interfaces.IPrincipalsManagement *"
+     factory="z3c.traverser.traverser.PluggableTraverser"
+     provides="zope.publisher.interfaces.IPublishTraverse" />
+
+  <subscriber
+     provides="z3c.traverser.interfaces.ITraverserPlugin"
+     factory=".management.TraverserPlugin" />
+
+  <!-- translations -->
+  <i18n:registerTranslations directory="locales"/>
+
+  <!-- browser views -->
+  <include file="browser.zcml" />
+
+</configure>

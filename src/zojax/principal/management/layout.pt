@@ -1,0 +1,36 @@
+<div id="z-preferences" i18n:domain="zojax.principal.management"
+     tal:define="rendered view/render;
+		 oldcontext nocall:context;
+		 context nocall:layoutcontext/__principal__;
+		 userinfo provider:zojax.principals-information;
+		 context nocall:maincontext;
+		 navigation provider:zojax.preferences-navigation;
+		 context nocall:oldcontext;
+		 noInfo python:not userinfo and not navigation">
+
+  <div class="z-portal-statusmessage"
+       tal:define="msg provider:statusMessage"
+       tal:content="structure msg"></div>
+
+  <table class="z-prefs-layout" tal:omit-tag="noInfo">
+    <tr tal:omit-tag="noInfo">
+      <td class="z-prefs-nav-column" tal:condition="not:noInfo">
+	<div class="z-prefs-nav-wrapper">
+	  <tal:block tal:content="structure userinfo" />
+	  <br />
+	  <tal:block tal:content="structure navigation" />
+	</div>
+      </td>
+      <td class="z-prefs-content-column" tal:omit-tag="noInfo">
+	<div class="z-prefs-content-wrapper">
+	  <tal:block tal:content="structure rendered" />
+	</div>
+      </td>
+    </tr>
+  </table>
+
+  <br />
+  <hr />
+  <a tal:attributes="href string:${layoutcontext/@@absolute_url}/../"
+     i18n:translate="">Back to principals management panel</a>
+</div>

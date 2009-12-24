@@ -1,0 +1,30 @@
+<tal:block i18n:domain="zojax.principal.management">
+  <h1 tal:content="context/__title__">User management.</h1>
+  <div class="z-page-description" tal:content="context/__description__"></div>
+
+  <div class="z-topframe" tal:on-error="nothing"
+       tal:define="factories view/factories"
+       tal:condition="factories">
+    <h1 i18n:translate="">Create principal</h1>
+
+    <ul class="z-listing">
+      <li tal:repeat="factory factories">
+	<div class="z-listing-icon" 
+	     tal:define="icon factory/@@zmi_icon|nothing" 
+	     tal:content="structure icon">
+	</div>
+	<div class="z-listing-details">
+	  <a tal:attributes="href string:${factory/name}/" 
+	     tal:content="factory/title">Add new principal.</a>
+	  <div><tal:block tal:content="factory/description" /> &nbsp;</div>
+	</div>
+      </li>
+    </ul>
+    <div class="visualClear"></div>
+  </div>
+  <br />
+
+  <div class="z-form-standard">
+    <div tal:content="structure view/@@pagelet/form.view" />
+  </div>
+</tal:block>

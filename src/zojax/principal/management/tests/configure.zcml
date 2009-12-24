@@ -1,0 +1,11 @@
+<configure
+   xmlns="http://namespaces.zope.org/zope"
+   xmlns:zojax="http://namespaces.zope.org/zojax">
+
+  <zojax:pagelet
+     name="index.html"
+     for=".factory.IMyPrincipalFactory"
+     class=".factory.AddPrincipalForm"
+     permission="zojax.ManagePrincipals" />
+
+</configure>

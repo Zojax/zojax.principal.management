@@ -1,0 +1,106 @@
+# #############################################################################
+#
+# Copyright (c) 2009 Zope Foundation and Contributors.
+# All Rights Reserved.
+#
+# This software is subject to the provisions of the Zope Public License,
+# Version 2.1 (ZPL).  A copy of the ZPL should accompany this distribution.
+# THIS SOFTWARE IS PROVIDED "AS IS" AND ANY AND ALL EXPRESS OR IMPLIED
+# WARRANTIES ARE DISCLAIMED, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+# WARRANTIES OF TITLE, MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS
+# FOR A PARTICULAR PURPOSE.
+#
+# #############################################################################
+msgid ""
+msgstr ""
+"Project-Id-Version: Development/Unknown\n"
+"POT-Creation-Date: Tue Oct 21 21:39:16 2008\n"
+"PO-Revision-Date: 2008-10-22 10:57+0100\n"
+"Last-Translator: F. Kooman <fkooman@tuxed.net>\n"
+"Language-Team: Zope 3 Developers <zope3-dev@zope.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: zope/app/locales/extract.py\n"
+
+#: src/zojax/principal/management/breadcrumb.py:27
+msgid "Principals"
+msgstr "Gebruikers"
+
+#: src/zojax/principal/management/browser.zcml:48
+msgid "Remove principal from portal."
+msgstr "Verwijderen gebruiker van website"
+
+#: src/zojax/principal/management/browser.zcml:48
+#: src/zojax/principal/management/principalremover.pt:2
+msgid "Remove principal"
+msgstr "Gebruiker verwijderen"
+
+#: src/zojax/principal/management/configure.zcml:14
+msgid "Principals management"
+msgstr "Gebruikersbeheer"
+
+#: src/zojax/principal/management/configure.zcml:14
+msgid "Portal principals management panel."
+msgstr "Website gebruikersbeheer"
+
+#: src/zojax/principal/management/configure.zcml:31
+msgid "Membership preferences"
+msgstr "Website lidmaatschapvoorkeuren"
+
+#: src/zojax/principal/management/configure.zcml:31
+msgid "These are all the preferences related to portal membership."
+msgstr "Dit zijn alle voorkeuren met betrekking tot website-lidmaatschap."
+
+#: src/zojax/principal/management/configure.zcml:9
+msgid "Manage site principals"
+msgstr "Beheer website gebruikers"
+
+#: src/zojax/principal/management/layout.pt:23
+msgid "Back to principals management panel"
+msgstr "Terug naar gebruikersbeheer"
+
+#: src/zojax/principal/management/management.pt:36
+msgid "View principal"
+msgstr "Gebruiker bekijken"
+
+#: src/zojax/principal/management/management.pt:8
+msgid "Create principal"
+msgstr "Gebruiker toevoegen"
+
+#: src/zojax/principal/management/management.py:40
+msgid "Select principal"
+msgstr "Gebruiker selecteren"
+
+#: src/zojax/principal/management/management.py:53
+msgid "Principal"
+msgstr "Gebruiker"
+
+#: src/zojax/principal/management/management.py:54
+msgid "Select principal to view/edit."
+msgstr "Selecteer persoon of groep om te bekijken/aan te passen."
+
+#: src/zojax/principal/management/management.py:70
+msgid "Please select principal."
+msgstr "Kies een gebruiker"
+
+#: src/zojax/principal/management/principalremover.pt:12
+msgid "Remove members also?"
+msgstr "Leden ook verwijderen?"
+
+#: src/zojax/principal/management/principalremover.pt:16
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: src/zojax/principal/management/principalremover.pt:18
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: src/zojax/principal/management/principalremover.pt:6
+msgid "Are you sure you want remove this principal?"
+msgstr "Weet je zeker dat je deze gebruiker wilt verwijderen?"
+
+#: src/zojax/principal/management/principalremover.py:68
+msgid "Principal has been removed."
+msgstr "Gebruiker is verwijderd."
+
